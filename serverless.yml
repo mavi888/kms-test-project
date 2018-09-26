@@ -1,14 +1,14 @@
-service: serverless-parameter-store
+service: kms-test-project
 
 custom:
   settings:
-    SECRET_VALUE: ${ssm:serverless-parameter-store-secret-value}
+    SECRET_VALUE: ${ssm:/kms-test-project/value1~true}
 
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs8.10
   profile: default
-  region: eu-west-1
+  region: us-east-1
   environment: ${self:custom.settings}
 
 functions:
